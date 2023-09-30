@@ -3,10 +3,17 @@
 import { useState } from 'react';
 
 export function useForm(inputValues: any) {
+
+  interface Errors {
+    [key: string]: any;
+    password?: string;
+    email?: string;
+  }
+
   const EMAIL_REGEXP = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const [values, setValues] = useState(inputValues);
   const [isValid, setIsValid] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Errors>({});
 
   const handleChange = (event: any) => {
     const { value, name } = event.target;
