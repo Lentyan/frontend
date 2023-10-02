@@ -1,45 +1,53 @@
 'use client';
 
-import { Select, Button } from 'antd';
+import { Button, Select } from 'antd';
+import useGetAllShops from '@/hooks/useGetAllShops';
+import { useState } from 'react';
+
 export default function StatisticsSearch() {
-  const options = [];
-  for (let i = 10; i < 36; i++) {
-    options.push({
-      value: i.toString(36) + i,
-      label: i.toString(36) + i,
-    });
-  }
-  const handleChange = (value:string) => {
-    console.log(`selected ${value}`);
+  const { allShops, isLoading, isError } = useGetAllShops();
+  console.log(allShops, isLoading, isError);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const options = allShops.map(shop => ({
+    value: shop.id.toString(),
+    label: shop.store,
+  }));
+  const handleChange = (values: string[]) => {
+    setSelectedValues(values);
+    console.log(`selected ${values}`);
   };
 
   const handleClear = () => {
+    setSelectedValues([]);
     console.log('Список очищен!');
   };
 
   return (
-    <form>
-      <Select
-        mode="tags"
-        style={{
-          width: '100%',
-        }}
-        placeholder="Tags Mode"
-        onChange={handleChange}
-        options={options}
-        dropdownRender={(menu) => (
-          <div>
-            {menu}
-            <Button
-              type="link"
-              onClick={handleClear}
-              style={{ display: 'block', textAlign: 'center', padding: '4px' }}
-            >
-              Очистить
-            </Button>
-          </div>
-        )}
-      />
-    </form>
+    <>
+      <form>
+        <Select
+          mode="tags"
+          value={selectedValues}
+          style={{
+            width: '100%',
+          }}
+          placeholder="Tags Mode"
+          onChange={handleChange}
+          options={options}
+          dropdownRender={(menu) => (
+            <div>
+              {menu}
+              <Button
+                type="link"
+                onClick={handleClear}
+                style={{ display: 'block', textAlign: 'center', padding: '4px' }}
+              >
+                Очистить
+              </Button>
+            </div>
+          )}
+        />
+      </form>
+    </>
   );
 }
