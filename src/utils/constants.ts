@@ -1,1 +1,15 @@
-export const STATISTICS_TABLE_HEADERS = ['ТК', 'Группа', 'Категория', 'Подкатегория', 'Товар', 'Неделя', 'Факт, руб', 'Прогноз, руб', 'Разница, руб', 'Факт (кг, шт)', 'Разница, (кг, шт)', 'Факт (кг, шт)', 'Wape'];
+export const STATISTICS_TABLE_COLUMNS = [
+  { title: 'ТК', dataIndex: 'store', key: 'store' },
+  { title: 'Группа', dataIndex: 'productGroup', key: 'productGroup' },
+  { title: 'Категория', dataIndex: 'category', key: 'category' },
+  { title: 'Подкатегория', dataIndex: 'subcategory', key: 'subcategory' },
+  { title: 'Товар', dataIndex: 'productName', key: 'productName' },
+  { title: 'Неделя', dataIndex: 'dateRange', key: 'dateRange' },
+  { title: 'Факт, руб', dataIndex: 'actualSales', key: 'actualSales' },
+  { title: 'Прогноз, руб', dataIndex: 'forecastSales', key: 'forecastSales' },
+  { title: 'Разница, руб', dataIndex: 'differenceSales', key: 'differenceSales' },
+  { title: 'Факт (кг, шт)', dataIndex: 'actualVolumeAmount', key: 'actualVolumeAmount' },
+  { title: 'Разница, (кг, шт)', dataIndex: 'forecastVolumeAmount', key: 'forecastVolumeAmount' },
+  { title: 'Факт (кг, шт)', dataIndex: 'differenceVolumeAmount', key: 'differenceVolumeAmount' },
+  { title: 'Wape', dataIndex: 'wape', key: 'wape' },
+];

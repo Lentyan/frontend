@@ -1,11 +1,11 @@
 export interface Statistics {
+  key: number,
   store: string;
   productGroup: string;
   category: string;
   subcategory: string;
   productName: string;
-  dateRangeStart: string;
-  dateRangeEnd: string;
+  dateRange: string;
   actualSales: number;
   forecastSales: number;
   differenceSales: number;
