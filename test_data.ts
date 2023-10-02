@@ -2,6 +2,7 @@ import ProductResponse from '@/interfaces/Product';
 import StoreSalesResponse from '@/interfaces/Sale';
 import StoreResponse from '@/interfaces/Store';
 import StoreForecastResponse from '@/interfaces/Forecast';
+import { Statistics } from '@/interfaces/Statistics';
 
 export const categories: ProductResponse = {
   'data': [
@@ -227,3 +228,85 @@ export const forecast: StoreForecastResponse = {
   ],
 };
 
+export const STATISTICS_TABLE_DATA: Statistics[] = [
+  {
+    'store': 'ТК №15',
+    'productGroup': 'Хлеб',
+    'category': 'Хлеб мелкий',
+    'subcategory': 'Булочки',
+    'productName': 'Булочка с маком',
+    'dateRangeStart': '01.09.23',
+    'dateRangeEnd': '07.09.23',
+    'actualSales': 345987,
+    'forecastSales': 301000,
+    'differenceSales': 44987,
+    'actualVolumeAmount': '1345 шт',
+    'forecastVolumeAmount': '1000 шт',
+    'differenceVolumeAmount': '345 шт',
+    'wape': '89,9%',
+  },
+  {
+    'store': 'ТК №16',
+    'productGroup': 'Молочные продукты',
+    'category': 'Йогурты',
+    'subcategory': 'Без добавок',
+    'productName': 'Натуральный йогурт',
+    'dateRangeStart': '08.09.23',
+    'dateRangeEnd': '14.09.23',
+    'actualSales': 425678,
+    'forecastSales': 410000,
+    'differenceSales': 15678,
+    'actualVolumeAmount': '5678 шт',
+    'forecastVolumeAmount': '5000 шт',
+    'differenceVolumeAmount': '678 шт',
+    'wape': '91,2%',
+  },
+  {
+    'store': 'ТК №17',
+    'productGroup': 'Овощи',
+    'category': 'Корнеплоды',
+    'subcategory': 'Морковь',
+    'productName': 'Морковь свежая',
+    'dateRangeStart': '15.09.23',
+    'dateRangeEnd': '21.09.23',
+    'actualSales': 290435,
+    'forecastSales': 280000,
+    'differenceSales': 10435,
+    'actualVolumeAmount': '3490 кг',
+    'forecastVolumeAmount': '3300 кг',
+    'differenceVolumeAmount': '190 кг',
+    'wape': '92,6%',
+  },
+  {
+    'store': 'ТК №19',
+    'productGroup': 'Фрукты',
+    'category': 'Цитрусовые',
+    'subcategory': 'Лимоны',
+    'productName': 'Лимон желтый',
+    'dateRangeStart': '10.09.23',
+    'dateRangeEnd': '16.09.23',
+    'actualSales': 215000,
+    'forecastSales': 220000,
+    'differenceSales': -5000,
+    'actualVolumeAmount': '2150 кг',
+    'forecastVolumeAmount': '2200 кг',
+    'differenceVolumeAmount': '-50 кг',
+    'wape': '97,7%',
+  },
+  {
+    'store': 'ТК №21',
+    'productGroup': 'Молочные продукты',
+    'category': 'Йогурты',
+    'subcategory': 'Обезжиренные',
+    'productName': 'Йогурт натуральный',
+    'dateRangeStart': '20.09.23',
+    'dateRangeEnd': '26.09.23',
+    'actualSales': 180435,
+    'forecastSales': 185000,
+    'differenceSales': -4565,
+    'actualVolumeAmount': '9043 шт',
+    'forecastVolumeAmount': '9200 шт',
+    'differenceVolumeAmount': '-157 шт',
+    'wape': '94,5%',
+  },
+];
