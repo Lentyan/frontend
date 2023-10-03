@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { lentaApi } from '@/store/lenta/lenta.api';
+import { lentaApi } from '@/redux/lenta/lenta.api';
 
 export const store = configureStore({
   reducer: {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useGetShopsQuery } from '@/store/lenta/lenta.api';
+import { useGetShopsQuery } from '@/redux/lenta/lenta.api';
 
 export default function useGetAllShops() {
   const [allShops, setAllShops] = useState<any[]>([]);

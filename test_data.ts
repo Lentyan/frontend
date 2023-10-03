@@ -1,6 +1,5 @@
 import ProductResponse from '@/interfaces/Product';
 import StoreSalesResponse from '@/interfaces/Sale';
-import StoreResponse from '@/interfaces/Store';
 import StoreForecastResponse from '@/interfaces/Forecast';
 import { Statistics } from '@/interfaces/Statistics';
 
@@ -110,31 +109,6 @@ export const sales: StoreSalesResponse = {
         { 'date': '2023-09-13', 'sales_type': 0, 'sales_units': 1, 'sales_units_promo': 0, 'sales_rub': 200, 'sales_rub_promo': 0 },
         { 'date': '2023-09-14', 'sales_type': 1, 'sales_units': 4, 'sales_units_promo': 3, 'sales_rub': 800, 'sales_rub_promo': 600 },
       ],
-    },
-  ],
-};
-
-
-
-export const shops: StoreResponse = {
-  'data': [
-    {
-      'store': 'store1',
-      'city': 'Москва',
-      'division': 'div1',
-      'type_format': 1,
-      'loc': 1,
-      'size': 100,
-      'is_active': 1,
-    },
-    {
-      'store': 'store2',
-      'city': 'Санкт-Петербург',
-      'division': 'div2',
-      'type_format': 2,
-      'loc': 2,
-      'size': 150,
-      'is_active': 0,
     },
   ],
 };
