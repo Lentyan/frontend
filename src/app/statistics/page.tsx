@@ -1,14 +1,10 @@
-import StatisticsChart from '@/components/StatisticsChart';
-import StatisticsTable from '@/components/StatisticsTable';
+import Statistics from '@/components/Statistics';
 
 export default function statistics() {
+  console.log('statistics page');
   return (
     <>
-      <h1>statistics component</h1>
-      <StatisticsTable />
-      <div>
-        <StatisticsChart />
-      </div>
+      <Statistics />
     </>
   );
 }
