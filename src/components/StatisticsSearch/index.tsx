@@ -1,14 +1,13 @@
 'use client';
-import SelectShop from '@/components/SelectShop';
-import SelectCategory from '@/components/SelectCategory';
+
+import MySelect from '@/components/SelectTest';
 
 export default function StatisticsSearch() {
   console.log('StatisticsSearch');
   return (
     <>
       <form>
-        <SelectCategory/>
-        <SelectShop/>
+      <MySelect />
       </form>
     </>
   );

@@ -27,7 +27,12 @@ export const lentaApi = createApi({
         url: 'api/v1/categories/',
       }),
     }),
+    getGroup: build.query<any, void>({
+      query: () => ({
+        url: 'api/v1/groups/',
+      }),
+    }),
   }),
 });
 
-export const { useGetShopsQuery, useGetCategoriesQuery } = lentaApi;
+export const { useGetShopsQuery, useGetCategoriesQuery, useGetGroupQuery } = lentaApi;
