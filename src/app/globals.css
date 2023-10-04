@@ -1,5 +1,11 @@
-@import url(../vendor/fonts/fonts.css);
+@import "../vendor/fonts/futura-fonts";
+@import "../vendor/normalize.css";
 
-body {
-    margin: 0;
+:root {
+    font-family: "Futura PT Book", Arial, sans-serif;
+    color: #000000;
+    min-height: 100vh;
+    background: #ffffff;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
