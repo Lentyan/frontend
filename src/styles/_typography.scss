@@ -1,38 +1,9 @@
-$typography-styles: (
-        'h1': (
-                'font-size': 40px,
-                'font-weght': 500,
-                'line-height': 51.28px,
-        ),
-        'h2': (
-                'font-size': 28px,
-                'font-weght': 500,
-                'line-height': 35.9px,
-        ),
-        'h3': (
-                'font-size': 20px,
-                'font-weght': 500,
-                'line-height': 25.64px,
-        ),
-        'large-text': (
-                'font-size': 24px,
-                'font-weght': 400,
-                'line-height': 30.77px,
-        ),
-        'base-text': (
-                'font-size': 20px,
-                'font-weght': 400,
-                'line-height': 25.64px,
-        ),
-        'small-text': (
-                'font-size': 16px,
-                'font-weght': 400,
-                'line-height': 20.51px,
-        ),
-);
-
-@mixin typography($key) {
-  $style: map-get($typography-styles, $key);
-  font-size: map-get($style, 'font-size');
-  line-height: map-get($style, 'line-height');
-}
+$font-h1: 600 40px/51.28px "Futura PT Demi", Arial, sans-serif;
+$font-h2: 600 28px/35.9px "Futura PT Demi", Arial, sans-serif;
+$font-h3: 600 20px/25.64px "Futura PT Demi", Arial, sans-serif;
+$font-large-text: 400 24px/30.77px "Futura PT Book", Arial, sans-serif;
+$font-base-text: 400 20px/25.64px "Futura PT Book", Arial, sans-serif;
+$font-small-text: 400 16px/20.51px "Futura PT Book", Arial, sans-serif;
+$font-table-header: 600 16px/20.51px "Futura PT Demi", Arial, sans-serif;
+$font-table-base-text: 400 16px/20.51px "Futura PT Book", Arial, sans-serif;
+$font-table-small-text: 400 12px/15.38px "Futura PT Book", Arial, sans-serif;

@@ -1,0 +1,20 @@
+@import "../../../src/styles/typography";
+
+.cellText {
+  padding: 15px 12px 15px 12px;
+  box-sizing: border-box;
+
+  &_type_header {
+    font: $font-table-header;
+  }
+  &_type_base {
+    font: $font-table-base-text;
+  }
+
+  &_postiton_right {
+    text-align: right;
+    padding: 8px 12px 8px 12px;
+    box-sizing: border-box;
+  }
+
+}
