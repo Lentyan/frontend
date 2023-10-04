@@ -1,3 +1,8 @@
+import styles from './Header.module.scss';
 export default function Header() {
-  return <h1>Header component</h1>;
+  return (
+    <header className={styles.header}>
+
+    </header>
+  );
 }

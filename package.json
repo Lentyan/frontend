@@ -12,6 +12,7 @@
     "@ant-design/plots": "^1.2.5",
     "@emotion/react": "^11.11.1",
     "@reduxjs/toolkit": "^1.9.6",
+    "@tanstack/react-table": "^8.10.3",
     "antd": "^5.9.4",
     "next": "latest",
     "react": "latest",
