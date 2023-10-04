@@ -1,0 +1,7 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Property 1=Checked">
+<rect x="1" y="1" width="22" height="22" rx="3" fill="#003C96"/>
+<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M19 8.15852L10.3091 16.7601C9.98584 17.08 9.46177 17.08 9.13853 16.7601L5 12.6641L6.17055 11.5056L9.72381 15.0223L17.8294 7L19 8.15852Z" fill="white"/>
+<rect x="1" y="1" width="22" height="22" rx="3" stroke="#003C96" stroke-width="2"/>
+</g>
+</svg>
