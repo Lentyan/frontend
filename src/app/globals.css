@@ -1,1 +1,5 @@
-:root {}
+@import url(../vendor/fonts/fonts.css);
+
+body {
+    margin: 0;
+}
