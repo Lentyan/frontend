@@ -1,9 +1,11 @@
 @import "../vendor/fonts/futura-fonts";
 @import "../vendor/normalize.css";
+@import "../../src/styles/typography";
+@import "../../src/styles/colors";
 
 :root {
-    font-family: "Futura PT Book", Arial, sans-serif;
-    color: #000000;
+    font: $font-base-text;
+    color: $color-black;
     min-height: 100vh;
     background: #ffffff;
     -moz-osx-font-smoothing: grayscale;

@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './StatisticsTable.module.scss';
 import { useState } from 'react';
 import {
   createColumnHelper,
@@ -9,6 +10,7 @@ import {
 } from '@tanstack/react-table';
 import { Statistics } from '@/interfaces/Statistics';
 import { STATISTICS_TABLE_DATA } from '../../../test_data';
+import Cell from '../CellText';
 
 
 const defaultData: Statistics[] = STATISTICS_TABLE_DATA;
@@ -19,80 +21,80 @@ const columns = [
   columnHelper.accessor(
     'store',
     {
-      header: () => 'ТК',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header">ТК</Cell>,
+      cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'productGroup',
     {
-      header: () => 'Группа',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header">Группа</Cell>,
+      cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'category',
     {
-      header: () => 'Категория',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header">Категория</Cell>,
+      cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'subcategory',
     {
-      header: () => 'Подкатегория',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header">Подкатегория</Cell>,
+      cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'productName',
     {
-      header: () => 'Товар',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header">Товар</Cell>,
+      cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'uom',
     {
-      header: () => 'Ед.изм',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header">Ед.изм</Cell>,
+      cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'actualVolumeAmount',
     {
-      header: () => 'Факт (шт/кг)',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Факт (шт/кг)</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'forecastVolumeAmount',
     {
-      header: () => 'Прогноз (шт/кг)',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Прогноз (шт/кг)</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'differenceVolumeAmount',
     {
-      header: () => 'Разница (шт/кг)',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Разница (шт/кг)</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'actualSales',
     {
-      header: () => 'Факт (руб)',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Факт (руб)</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'forecastSales',
     {
-      header: () => 'Прогноз (руб)',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Прогноз (руб)</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'differenceSales',
     {
-      header: () => 'Разница (руб)',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Разница (руб)</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
     'wape',
     {
-      header: () => 'Качество по Wape',
-      cell: info => info.getValue(),
+      header: () => <Cell type="header" position="right">Качество по Wape</Cell>,
+      cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
 
 ];
@@ -105,13 +107,29 @@ const StatisticsTable = () => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="p-2">
-      <table>
-        <thead>
+    <section className={styles.StatisticsTable}>
+      <table className={styles.StatisticsTable__table}>
+        <colgroup>
+          <col style={{ width: '4.50%' }} />
+          <col style={{ width: '4.84%' }} />
+          <col style={{ width: '6.98%' }} />
+          <col style={{ width: '6.98%' }} />
+          <col style={{ width: '7.54%' }} />
+          <col style={{ width: '3.77%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '9.34%' }} />
+          <col style={{ width: '10.46%' }} />
+        </colgroup>
+        <thead className={styles.StatisticsTable__header}>
         {table.getHeaderGroups().map(headerGroup => (
           <tr key={headerGroup.id}>
             {headerGroup.headers.map(header => (
-              <th key={header.id}>
+              <th key={header.id} className={styles.StatisticsTable__headerText}>
                 {header.isPlaceholder
                   ? null
                   : flexRender(
@@ -125,9 +143,9 @@ const StatisticsTable = () => {
         </thead>
         <tbody>
         {table.getRowModel().rows.map(row => (
-          <tr key={row.id}>
+          <tr key={row.id} className={styles.StatisticsTable__tableRow}>
             {row.getVisibleCells().map(cell => (
-              <td key={cell.id}>
+              <td key={cell.id} className={styles.StatisticsTable__bodyText}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}
@@ -135,7 +153,7 @@ const StatisticsTable = () => {
         ))}
         </tbody>
       </table>
-    </div>
+    </section>
   );
 };
 
