@@ -1,4 +1,6 @@
 .login {
+    font-family: 'Futura PT';
+
     position: relative;
     margin: 220px auto;
     width: 100%;
@@ -57,6 +59,7 @@
     }
 
     .login__area {
+        
         .login__wrapper {
             position: relative;
 
@@ -64,7 +67,7 @@
                 cursor: pointer;
                 position: absolute;
                 right: 12px;
-                top: 12px;
+                top: 13px;
                 width: 24px;
                 height: 24px;
                 flex-shrink: 0;
@@ -106,10 +109,13 @@
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            margin-bottom: 20px;
+
         }
     }
 
     .login__input {
+        font-family: 'Futura PT';
         outline: none;
         all: unset;
         width: 100%;
@@ -129,6 +135,7 @@
     }
 
     .login__input_error {
+        margin-bottom: 4px;
         border: 1px solid #FF6E7E;
 
         &:focus {
