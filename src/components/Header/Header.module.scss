@@ -1,0 +1,49 @@
+.header {
+    color: white;
+    font-family: 'Futura PT';
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background-color: #003C96;
+    justify-content: space-between;
+
+
+    &__logo {
+        cursor: pointer;
+    }
+
+    &__nav {
+        margin-top: 40px;
+        margin-left: 120px;
+        display: flex;
+        height: 60px;
+    }
+
+    &__navItem {
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        cursor: pointer;
+        padding: 20px;
+        min-width: 180px;
+        max-width: 186px;
+
+        &_active {
+            border-radius: 15px 15px 0px 0px;
+            color: black;
+            background-color: white;
+        }
+    }
+
+    &__container {
+        display: flex;
+    }
+
+    &__exit {
+        margin-left: 32px;
+        cursor: pointer;
+    }
+}
