@@ -1,16 +1,17 @@
 @font-face {
-  font-family: 'Futura PT Book';
+  font-family: 'Futura PT';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url(futura_pt_book.woff2) format('woff2'),
-  url(futura_pt_book.woff) format('woff');
+    url(futura_pt_book.woff) format('woff');
 }
+
 @font-face {
-  font-family: 'Futura PT Demi';
+  font-family: 'Futura PT';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-display: swap;
   src: url(futura_pt_demi.woff2) format('woff2'),
-  url(futura_pt_demi.woff) format('woff');
+    url(futura_pt_demi.woff) format('woff');
 }
