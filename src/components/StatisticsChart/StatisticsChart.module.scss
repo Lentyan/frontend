@@ -1,0 +1,37 @@
+@import "../../styles/typography";
+@import "../../styles/colors";
+.StatisticsChart {
+  &__tooltip {
+    padding: 16px 20px;
+  }
+  &__tooltipHeader {
+    font: $font-table-header;
+    width: 192px;
+    box-sizing: border-box;
+    background: $color-light-crimson;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: $color-black;
+    margin: 0 0 12px 0;
+  }
+  &__tooltipTable {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  &__tooltipItemCaption {
+    border-right: 1px solid $color-anthracite-dark;
+    text-align: right;
+    padding: 0 16px 0 0;
+  }
+  &__tooltipItemValue {
+    font: $font-table-small-text;
+    padding: 0 0 0 16px;
+  }
+  &__tooltipItemText {
+    margin: 0;
+    padding: 4px 0 4px 0;
+    font: $font-table-small-text;
+    color: $color-black;
+    font-size: 16px;
+  }
+}
