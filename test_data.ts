@@ -268,7 +268,7 @@ export const STATISTICS_TABLE_DATA: Statistics[] = [
     'productGroup': 'Молочные продукты',
     'category': 'Йогурты',
     'subcategory': 'Обезжиренные',
-    'productName': 'Йогурт натуральный и экологически чистый продукт',
+    'productName': 'Йогурт натуральный',
     'uom': 'шт',
     'actualVolumeAmount': '9043',
     'forecastVolumeAmount': '9200',
