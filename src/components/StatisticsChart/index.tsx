@@ -1,7 +1,8 @@
 'use client';
-import React from 'react';
+
 import { Line } from '@ant-design/plots';
 import { Annotation } from '@antv/g2plot';
+import styles from './StatisticsChart.module.scss';
 
 const StatisticsChart = () => {
   const tk1 = [
@@ -151,25 +152,63 @@ const StatisticsChart = () => {
     ] as Annotation[],
     color: ['#003C96', '#00BE64', '#FFB900'],
     tooltip: {
-      shared: true,
+      shared: false,
+      showCrosshairs: false,
+      domStyles: {
+        'g2-tooltip': {
+          backgroundColor: '#FFFFFF',
+          padding: '0',
+          margin: '0',
+          borderRadius: '10px',
+          opacity: 1,
+        },
+      },
       customContent: (title: string, items: any[]) => {
         return (
-          <div>
-            <h4>{title}</h4>
+          <div className={styles.StatisticsChart__tooltip}>
             {items.map(item => (
-              <p key={item.name}>
-                {item.name}: {item.value}
-              </p>
+              <div key={item.name} className={styles.StatisticsChart__tooltipContainer}>
+                <table className={styles.StatisticsChart__tooltipTable}>
+                  <caption className={styles.StatisticsChart__tooltipHeader}>Продажи ниже прогноза</caption>
+                  <tbody>
+                  <tr>
+                    <td className={styles.StatisticsChart__tooltipItemCaption}><p className={styles.StatisticsChart__tooltipItemText}>Разница, руб</p></td>
+                    <td className={styles.StatisticsChart__tooltipItemValue}><p className={styles.StatisticsChart__tooltipItemText}>− 124 000</p></td>
+                  </tr>
+                  <tr>
+                    <td className={styles.StatisticsChart__tooltipItemCaption}><p className={styles.StatisticsChart__tooltipItemText}>Разница, шт</p></td>
+                    <td className={styles.StatisticsChart__tooltipItemValue}><p className={styles.StatisticsChart__tooltipItemText}>− 1 000</p></td>
+                  </tr>
+                  <tr>
+                    <td className={styles.StatisticsChart__tooltipItemCaption}><p className={styles.StatisticsChart__tooltipItemText}>WAPE</p></td>
+                    <td className={styles.StatisticsChart__tooltipItemValue}><p className={styles.StatisticsChart__tooltipItemText}>{item.value}</p></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             ))}
           </div>
         );
       },
     },
     legend: {
-      offsetY: 5,
+      offsetY: 15,
       offsetX: 75,
       position: 'bottom-left' as const,
       layout: 'horizontal' as const,
+      itemName: {
+        style: {
+          fontSize: 16,
+          fill: '#2C2A29',
+        },
+      },
+      marker: {
+        symbol: 'square' as const,
+        style: {
+          r: 4,
+          lineWidth: 12,
+        },
+      },
     },
   };
 
