@@ -204,7 +204,7 @@ export const forecast: StoreForecastResponse = {
 
 export const STATISTICS_TABLE_DATA: Statistics[] = [
   {
-    'store': 'ТК №15',
+    'store': '123',
     'productGroup': 'Хлеб',
     'category': 'Хлеб мелкий',
     'subcategory': 'Булочки',
@@ -219,7 +219,7 @@ export const STATISTICS_TABLE_DATA: Statistics[] = [
     'wape': 2,
   },
   {
-    'store': 'ТК №16',
+    'store': '16',
     'productGroup': 'Молочные продукты',
     'category': 'Йогурты',
     'subcategory': 'Без добавок',
@@ -234,7 +234,7 @@ export const STATISTICS_TABLE_DATA: Statistics[] = [
     'wape': 11,
   },
   {
-    'store': 'ТК №17',
+    'store': '17',
     'productGroup': 'Овощи',
     'category': 'Корнеплоды',
     'subcategory': 'Морковь',
@@ -249,7 +249,7 @@ export const STATISTICS_TABLE_DATA: Statistics[] = [
     'wape': 6,
   },
   {
-    'store': 'ТК №19',
+    'store': '19',
     'productGroup': 'Фрукты',
     'category': 'Цитрусовые',
     'subcategory': 'Лимоны',
@@ -264,7 +264,7 @@ export const STATISTICS_TABLE_DATA: Statistics[] = [
     'wape': 5,
   },
   {
-    'store': 'ТК №21',
+    'store': '121',
     'productGroup': 'Молочные продукты',
     'category': 'Йогурты',
     'subcategory': 'Обезжиренные',
