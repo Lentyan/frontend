@@ -12,7 +12,6 @@ export default function StatisticsSearch() {
   const { allData: categories } = useGetAllCategories();
   const { allData: shops } = useGetAllShops(1, 20);
   const { allData: subcategories } = useGetAllSubcategories();
-  console.log('StatisticsSearch');
 
   const shopsData = shops.map(data => ({
     value: data.id.toString(),

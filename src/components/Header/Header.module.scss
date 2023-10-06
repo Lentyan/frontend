@@ -21,6 +21,8 @@
     }
 
     &__navItem {
+        color: white;
+        text-decoration: none;
         text-align: center;
         font-size: 24px;
         font-style: normal;
@@ -33,7 +35,7 @@
 
         &_active {
             border-radius: 15px 15px 0px 0px;
-            color: black;
+            color: #2C2A29;
             background-color: white;
         }
     }
