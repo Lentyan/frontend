@@ -1,17 +1,37 @@
 @import "src/styles/typography";
+@import "src/styles/colors";
 
 .toggle {
   width: 160px;
-  background: #f6f6f6;
+  height: 50px;
+  background: $color-white;
   display: flex;
-  border-radius: 8px;
   font: $font-base-text;
   justify-content: center;
-}
-
-.toggle__item {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
+  cursor: pointer;
+  &__item {
+    border: 1px solid $color-anthracite-dark;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  &__item_active {
+    background: $color-blue;
+    color: $color-white;
+  }
+  &__item_disabled {
+    background: $color-anthracite-light;
+    border: 1px solid $color-anthracite-light;
+    cursor: default;
+  }
+  &__item:first-child {
+    border-right: none;
+    width: 50%;
+    border-radius: 8px 0 0 8px;
+  }
+  &__item:last-child {
+    width: 50%;
+    border-radius: 0 8px 8px 0;
+  }
 }

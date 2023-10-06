@@ -93,7 +93,7 @@ const columns = [
   columnHelper.accessor(
     'wape',
     {
-      header: () => <Cell type="header" position="right">Качество по Wape</Cell>,
+      header: () => <Cell type="header" position="right">Качество по WAPE</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
 
@@ -110,20 +110,19 @@ const StatisticsTable = () => {
     <section className={styles.StatisticsTable}>
       <table className={styles.StatisticsTable__table}>
         <colgroup>
-          <col style={{ width: '4.50%' }} />
+          <col style={{ width: '4.30%' }} />
           <col style={{ width: '4.84%' }} />
-          <col style={{ width: '6.98%' }} />
-          <col style={{ width: '6.98%' }} />
-          <col style={{ width: '7.54%' }} />
-          <col style={{ width: '3.77%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '9.34%' }} />
-          <col style={{ width: '10.46%' }} />
+          <col style={{ width: '6.65%' }} />
+          <col style={{ width: '6.8%' }} />
+          <col style={{ width: '7.4%' }} />
+          <col style={{ width: '3.1%' }} />
+          <col style={{ width: '9.0%' }} />
+          <col style={{ width: '9.0%' }} />
+          <col style={{ width: '9.0%' }} />
+          <col style={{ width: '9.0%' }} />
+          <col style={{ width: '9.0%' }} />
+          <col style={{ width: '9.0%' }} />
+          <col style={{ width: '10.2%' }} />
         </colgroup>
         <thead className={styles.StatisticsTable__header}>
         {table.getHeaderGroups().map(headerGroup => (

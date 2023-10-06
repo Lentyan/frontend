@@ -1,8 +1,10 @@
 .statisticsSearch {
   display: flex;
+  padding: 0 0 30px 0;
 }
 
 .statisticsSearch__form {
   display: flex;
   gap: 24px;
+  align-items: flex-end;
 }
