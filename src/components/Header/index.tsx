@@ -1,15 +1,14 @@
 'use client';
+import { useUrl } from 'nextjs-current-url';
 
 import Link from 'next/link';
-import { useUrl } from 'nextjs-current-url';
 import logo from '../../images/Logo.svg';
 import exit from '../../images/door_exit.svg';
 import style from './Header.module.scss';
 
 function Header() {
 
-  const { href: currentUrl, pathname } = useUrl() ?? {};
-
+  const { pathname } = useUrl() ?? {};
   return (
     <header className={style.header}>
       <div className={style.header__container}>
@@ -22,7 +21,6 @@ function Header() {
       <div className={style.header__container}>
         <p>Васнецова Мария</p>
         <img src={exit.src} className={style.header__exit} />
-
       </div>
     </header >
   );
