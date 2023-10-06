@@ -1,0 +1,40 @@
+.notFound {
+    font-family: 'Futura PT';
+    text-align: center;
+    color: #2C2A29;
+
+    &__image {
+        margin-top: 220px;
+    }
+
+    &__imageItem {
+        &_type {
+            &_logo {
+                margin: 0 15px;
+            }
+        }
+    }
+
+    &__title {
+        /* Заголовок 1 */
+        margin: 44px 0 16px;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    &__text {
+        margin: 0 0 70px;
+        /* Большой текст */
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+    }
+
+    &__button {
+        margin: auto;
+    }
+}
