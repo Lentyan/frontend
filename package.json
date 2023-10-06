@@ -8,9 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+    "d3-color": "^3.1.0"
+  },
   "dependencies": {
     "@ant-design/plots": "^1.2.5",
+    "@antv/g2": "^5.1.5",
+    "@antv/g2plot": "^2.4.31",
     "@emotion/react": "^11.11.1",
+    "@nivo/line": "^0.83.0",
     "@reduxjs/toolkit": "^1.9.6",
     "@tanstack/react-table": "^8.10.3",
     "antd": "^5.9.4",
@@ -24,6 +30,7 @@
     "sass": "^1.68.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -36,6 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "typescript": "latest"
+    "typescript": "latest",
+    "url-loader": "^4.1.1"
   }
 }

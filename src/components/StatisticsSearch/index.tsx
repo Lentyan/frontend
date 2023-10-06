@@ -25,7 +25,7 @@ export default function StatisticsSearch() {
         <SelectWithData placeholder="Группа" data={groups} />
         <SelectWithData placeholder="Категория" data={categories} />
         <SelectWithData placeholder="Подкатегория" data={subcategories} />
-        <SelectWithData placeholder="Test" data={subcategories} />
+        <SelectWithData placeholder="Товар" data={subcategories} />
         <Toggle />
       </form>
     </section>
