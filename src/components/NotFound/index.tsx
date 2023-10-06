@@ -7,9 +7,9 @@ export default function NotFound() {
   return (
         <section className={style.notFound}>
             <div className={style.notFound__image}>
-                <img src={number.src} alt='цифра' className={style.notFound__imageItem} />
-                <img src={logo.src} alt='лого' className={style.notFound__imageItem_type_logo} />
-                <img src={number.src} alt='цифра' className={style.notFound__imageItem} />
+                <img src={number} alt='цифра' className={style.notFound__imageItem} />
+                <img src={logo} alt='лого' className={style.notFound__imageItem_type_logo} />
+                <img src={number} alt='цифра' className={style.notFound__imageItem} />
             </div>
             <h2 className={style.notFound__title}>Кажется, что-то пошло не так</h2>
             <p className={style.notFound__text}> Пожалуйста, перезагрузите страницу или перейдите на основную страницу прогноза</p>
