@@ -16,7 +16,11 @@ const DataPicker = () => {
   const [startDate, setStartDate] = useState(new Date());
   registerLocale('ru', ru);
   return (
-    <DatePicker selected={startDate} locale="ru" onChange={(date: any) => setStartDate(date)} />
+    <DatePicker
+      // dateFormat="Pp"
+      selected={startDate}
+      locale="ru"
+      onChange={(date: any) => setStartDate(date)} />
   );
 };
 
