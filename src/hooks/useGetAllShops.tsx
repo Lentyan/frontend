@@ -6,7 +6,7 @@ import { useGetShopsQuery } from '@/redux/lenta/lenta.api';
 
 
 export default function useGetAllShops(initialPage = 1, limit?: number) {
-  const [allData, setAllData] = useState<Shop[]>([]);
+  const [allShops, setAllData] = useState<Shop[]>([]);
   const [page, setPage] = useState(initialPage);
   const { data, isError, isLoading } = useGetShopsQuery({ page, limit });
 
@@ -19,5 +19,5 @@ export default function useGetAllShops(initialPage = 1, limit?: number) {
     }
   }, [data, isLoading]);
 
-  return { allData, isLoading, isError };
+  return { allShops, isLoading, isError };
 }

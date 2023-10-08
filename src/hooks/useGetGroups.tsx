@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react';
 import { useGetGroupQuery } from '@/redux/lenta/lenta.api';
 
-export default function useGetAllGroups() {
+export default function useGetGroups(stores: string[]) {
   const [allData, setAllData] = useState<string[]>([]);
-  const { data, isLoading, isError } = useGetGroupQuery();
+  const { data, isLoading, isError } = useGetGroupQuery({ stores });
 
   useEffect(() => {
     if (!isLoading && data && data?.groups) {
