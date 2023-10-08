@@ -1,15 +1,13 @@
 'use client';
 import styles from './StatisticsSearch.module.scss';
 import SelectWithData from '@/components/SelectWithData';
-import useGetAllGroups from '@/hooks/useGetGroups';
-import useGetAllCategories from '@/hooks/useGetAllCategories';
-import useGetAllSubcategories from '@/hooks/useGetAllSubcategories';
+import useGetSku from '@/hooks/useGetSku';
 import useGetAllShops from '@/hooks/useGetAllShops';
 import Toggle from '@/components/Toggle';
 import Calendar from '@/components/Calendar';
 import {
   useLazyGetCategoriesQuery,
-  useLazyGetGroupQuery, useLazyGetSkuQuery,
+  useLazyGetGroupQuery,
   useLazyGetSubcategoryQuery,
 } from '@/redux/lenta/lenta.api';
 import { useEffect, useState } from 'react';
@@ -30,12 +28,13 @@ export default function StatisticsSearch() {
   const [fetchGroups, { data: dataGroups }] = useLazyGetGroupQuery();
   const [fetchCategories, { data: dataCategories }] = useLazyGetCategoriesQuery();
   const [fetchSubcategories, { data: dataSubcategories }] = useLazyGetSubcategoryQuery();
-  const [fetchSku, { data: dataSku }] = useLazyGetSkuQuery();
 
   const { shops: selectedShops } = useTypedSelector((state) => state.searchForm.fields);
   const { groups: selectedGroups } = useTypedSelector((state) => state.searchForm.fields);
   const { categories: selectedCategories } = useTypedSelector((state) => state.searchForm.fields);
   const { subcategories: selectedSubcategories } = useTypedSelector((state) => state.searchForm.fields);
+  const { fetchSku, allSku } = useGetSku(selectedSubcategories.value.map(item => item.value));
+
   const shopsData = allShops.map(data => ({
     value: data.id.toString(),
     label: data.store,
@@ -60,6 +59,7 @@ export default function StatisticsSearch() {
   }, [selectedShops, fetchGroups]);
 
   useEffect(() => {
+    console.log(dataGroups);
     if (dataGroups) {
       const newData = dataGroups.groups.map(data => ({
         value: data,
@@ -131,7 +131,7 @@ export default function StatisticsSearch() {
       const subcategories = selectedSubcategories.value.map(item => item.value);
       setFieldEnabled({ fieldName: 'sku', isEnabled: true });
       timeoutId = setTimeout(() => {
-        fetchSku({ subcategories: subcategories });
+        fetchSku({ subcategories: subcategories, page: 1, limit: 5 });
       }, 1000);
     } else {
       setFieldEnabled({ fieldName: 'sku', isEnabled: false });
@@ -139,31 +139,31 @@ export default function StatisticsSearch() {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [selectedSubcategories, fetchSku]);
+  }, [selectedSubcategories]);
+
 
   useEffect(() => {
-    console.log(dataSku);
-    if (dataSku) {
-      const newData = dataSku.subcategories.map(data => ({
-        value: data,
-        label: data,
-      }));
-      setProcessedDataSku(newData);
-    }
-  }, [dataSku]);
-
+    console.log(allSku);
+    const skuData = allSku.map(data => ({
+      value: data.id.toString(),
+      label: data.sku,
+    }));
+    setProcessedDataSku(skuData);
+  }, [allSku]);
 
 
   return (
     <section className={styles.statisticsSearch}>
       <form className={styles.statisticsSearch__form}>
-        <SelectWithData placeholder="ТК" data={shopsData} fieldName="shops" />
-        <SelectWithData placeholder="Группа" data={processedDataGroups} fieldName="groups" />
-        <SelectWithData placeholder="Категория" data={processedDataCategories} fieldName="categories"  />
-        <SelectWithData placeholder="Подкатегория" data={processedDataSubcategories} fieldName="subcategories"  />
-        <SelectWithData placeholder="Товар" data={processedDataSku} fieldName="sku"  />
-        <Toggle />
-        <Calendar />
+        <SelectWithData placeholder="ТК" data={shopsData} fieldName="shops"/>
+        <SelectWithData placeholder="Группа" data={processedDataGroups} fieldName="groups"/>
+        <SelectWithData placeholder="Категория" data={processedDataCategories}
+                        fieldName="categories"/>
+        <SelectWithData placeholder="Подкатегория" data={processedDataSubcategories}
+                        fieldName="subcategories"/>
+        <SelectWithData placeholder="Товар" data={processedDataSku} fieldName="sku"/>
+        <Toggle/>
+        <Calendar/>
       </form>
     </section>
   );

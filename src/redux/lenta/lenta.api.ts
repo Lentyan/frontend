@@ -35,9 +35,13 @@ export const lentaApi = createApi({
         url: `api/v1/subcategories/?${categories.map(category => `category=${category}`).join('&')}`,
       }),
     }),
-    getSku: build.query<SkuResponse<Sku>, { subcategories: string[] }>({
-      query: ({ subcategories }) => ({
+    getSku: build.query<SkuResponse<Sku>, { subcategories: string[], page?: number, limit?: number }>({
+      query: ({ subcategories, page = 1, limit = 10 }) => ({
         url: `api/v1/skus/?${subcategories.map(subcategory => `subcategory=${subcategory}`).join('&')}`,
+        params: {
+          page,
+          limit,
+        },
       }),
     }),
   }),
