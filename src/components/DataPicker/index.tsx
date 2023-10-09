@@ -14,13 +14,31 @@ import './DataPicker.scss';
 
 const DataPicker = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+  const minDate = new Date();
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 14);
+
   registerLocale('ru', ru);
   return (
     <DatePicker
       // dateFormat="Pp"
       selected={startDate}
+      onChange={onChange}
+      startDate={startDate}
+      endDate={endDate}
+      monthsShown={2}
       locale="ru"
-      onChange={(date: any) => setStartDate(date)} />
+      selectsRange
+      minDate={minDate}
+      maxDate={maxDate}
+      // onChange={(date: any) => setStartDate(date)}
+    />
   );
 };
 
