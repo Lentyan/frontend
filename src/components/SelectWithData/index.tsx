@@ -110,7 +110,7 @@ const customStyles = {
     overflowX: 'hidden' as 'hidden',
     overflowY: 'scroll' as 'scroll',
     scrollbarWidth: 'thin' as 'thin',
-    scrollbarColor: 'red #f6f6f6',
+    scrollbarColor: '#a1a1a1 #f6f6f6',
     // для веб-китов (Chrome, Edge, Safari):
     '&::-webkit-scrollbar': {
       width: '6px',

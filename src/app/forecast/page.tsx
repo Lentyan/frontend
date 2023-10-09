@@ -1,7 +1,7 @@
-import Notfound from '../../components/NotFound';
+import DataPicker from '../../components/DataPicker';
 
 export default function forecast() {
   return (
-    <Notfound />
+    <DataPicker />
   );
 }
