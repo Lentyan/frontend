@@ -1,9 +1,24 @@
 .react-datepicker-wrapper {
-    font-family: 'Futura PT';
-    font-size: 40px;
-    font-style: normal;
+    position: relative;
+    font-family: "Futura PT", Arial, sans-serif;
+    font-size: 20px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 26px;
+    width: 251px;
+    border-bottom: 1px solid #2c2a29;
+    margin: 0 0 0 40px;
+    z-index: 1;
+    &::before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 3px;
+        width: 18px;
+        height: 20px;
+        background: url('/calendar.svg') no-repeat center center;
+        background-size: contain;
+        z-index: 2;
+    }
 }
 
 .react-datepicker-ignore-onclickoutside {
@@ -52,6 +67,15 @@
 .react-datepicker__input-container {
     input {
         border: none;
+        outline: none;
+        width: 211px;
+        margin: 0 auto 12px auto;
+        display: block;
+
+    }
+    input:focus {
+        border: none;
+        outline: none;
     }
 }
 
