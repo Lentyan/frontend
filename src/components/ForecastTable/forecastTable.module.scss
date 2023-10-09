@@ -1,0 +1,43 @@
+@import "../../styles/typography";
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.StatisticsTable {
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid $color-anthracite-light;
+  overflow: hidden;
+  &__table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+  &__header {
+    background: $color-anthracite-light;
+    text-align: left;
+  }
+  &__tableRow {
+    border-bottom: 1px solid $color-anthracite-light;
+  }
+  &__headerText {
+    font: $font-table-header;
+    //padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  &__headerText:first-child {
+    padding-left: 20px;
+  }
+
+  &__headerText:last-child {
+    padding-right: 23px;
+  }
+  &__bodyText:first-child {
+    padding-left: 20px;
+  }
+  &__bodyText:last-child {
+    padding-right: 23px;
+  }
+
+}

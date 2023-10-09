@@ -1,7 +1,7 @@
-import DataPicker from '../../components/DataPicker';
+import Forecast from '@/components/Forecast';
 
 export default function forecast() {
   return (
-    <DataPicker />
+    <Forecast />
   );
 }

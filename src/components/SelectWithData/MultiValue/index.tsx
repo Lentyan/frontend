@@ -1,7 +1,11 @@
-import { components } from 'react-select';
+import { components, GroupBase, MultiValueProps } from 'react-select';
 import MoreSelectedBadge from './MoreSelectedBadge';
 
-export function MultiValue({ data, index, getValue, ...props }) {
+import { OptionType } from '@/types/SelectOption';
+
+
+export function MultiValue(props: MultiValueProps<OptionType, true, GroupBase<OptionType>>) {
+  const { getValue, index } = props;
   const maxToShow = 1;
   const overflow = getValue()
     .slice(maxToShow)
@@ -10,6 +14,6 @@ export function MultiValue({ data, index, getValue, ...props }) {
   return index < maxToShow ? (
     <components.MultiValue {...props} />
   ) : index === maxToShow ? (
-    <MoreSelectedBadge items={overflow}/>
+    <MoreSelectedBadge items={overflow} />
   ) : null;
 }

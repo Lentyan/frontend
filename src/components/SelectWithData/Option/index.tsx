@@ -1,6 +1,6 @@
 import { components, OptionProps } from 'react-select';
 import styles from '@/components/SelectWithData/SelectWithData.module.scss';
-import { OptionType } from '@/components/SelectWithData';
+import { OptionType } from '@/types/SelectOption';
 
 
 export default function SelectOption(props: OptionProps<OptionType, boolean>) {

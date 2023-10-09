@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useId } from 'react';
+import React, { FC, useId } from 'react';
 import Select from 'react-select';
 import DropdownIndicator from '@/components/DropdownIndicator';
 import styles from './SelectWithData.module.scss';
@@ -25,15 +25,18 @@ interface FieldPayload {
   value: OptionType[];
 }
 
+
 const SelectWithData: FC<Props> = ({ placeholder, data, fieldName }) => {
-  const { setFieldValue, setFieldEnabled } = useActions();
+  const { setFieldValue } = useActions();
   const options: OptionType[] = data.map(item =>
     typeof item === 'string' ? { value: item, label: item } : item,
   );
+  console.log(options);
   const field = useTypedSelector((state) => state.searchForm.fields[fieldName]);
-  const currentIndex = fieldOrder.indexOf(fieldName);
 
   /*
+   const currentIndex = fieldOrder.indexOf(fieldName);
+
   useEffect(() => {
     if (field.value.length === 0) {
       for (let i = currentIndex + 1; i < fieldOrder.length; i++) {

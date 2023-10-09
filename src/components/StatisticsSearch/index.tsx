@@ -4,7 +4,6 @@ import SelectWithData from '@/components/SelectWithData';
 import useGetSku from '@/hooks/useGetSku';
 import useGetAllShops from '@/hooks/useGetAllShops';
 import Toggle from '@/components/Toggle';
-import Calendar from '@/components/Calendar';
 import {
   useLazyGetCategoriesQuery,
   useLazyGetGroupQuery,
@@ -14,13 +13,16 @@ import { useEffect, useState } from 'react';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 import { useActions } from '@/hooks/useActions';
+import DataPicker from '@/components/DataPicker';
+
+
 
 
 export default function StatisticsSearch() {
-  const [processedDataGroups, setProcessedDataGroups] = useState([]);
-  const [processedDataCategories, setProcessedDataCategories] = useState([]);
-  const [processedDataSubcategories, setProcessedDataSubcategories] = useState([]);
-  const [processedDataSku, setProcessedDataSku] = useState([]);
+  const [processedDataGroups, setProcessedDataGroups] = useState<{ value: string; label: string; }[]>([]);
+  const [processedDataCategories, setProcessedDataCategories] = useState<{ value: string; label: string; }[]>([]);
+  const [processedDataSubcategories, setProcessedDataSubcategories] = useState<{ value: string; label: string; }[]>([]);
+  const [processedDataSku, setProcessedDataSku] = useState<{ value: string; label: string; }[]>([]);
   const { setFieldEnabled } = useActions();
 
 
@@ -163,7 +165,7 @@ export default function StatisticsSearch() {
                         fieldName="subcategories"/>
         <SelectWithData placeholder="Товар" data={processedDataSku} fieldName="sku"/>
         <Toggle/>
-        <Calendar/>
+        <DataPicker />
       </form>
     </section>
   );

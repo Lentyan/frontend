@@ -7,7 +7,7 @@ import { useLazyGetSkuQuery } from '@/redux/lenta/lenta.api';
 export default function useGetSku(subcategories: string[]) {
   const [allSku, setAllSku] = useState<Sku[]>([]);
   const [page, setPage] = useState(1);
-  const [ fetchSku, { data, isError, isLoading } ] = useLazyGetSkuQuery();
+  const [ fetchSku, { data, isLoading } ] = useLazyGetSkuQuery();
 
   useEffect(() => {
     if (!isLoading && data) {

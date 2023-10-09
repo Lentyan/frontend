@@ -1,6 +1,9 @@
 import styles from '../../SelectWithData.module.scss';
 
-export default function MoreSelectedBadge({ items }) {
+interface Props {
+  items: string[];
+}
+export default function MoreSelectedBadge({ items }: Props) {
   const length = items.length;
   const label = `+${length}`;
   return (

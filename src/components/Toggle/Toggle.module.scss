@@ -2,7 +2,7 @@
 @import "src/styles/colors";
 
 .toggle {
-  width: 160px;
+  min-width: 160px;
   height: 50px;
   background: $color-white;
   display: flex;

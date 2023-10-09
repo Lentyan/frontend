@@ -1,6 +1,6 @@
 import { CSSObject } from '@emotion/react';
 import { ControlProps } from 'react-select';
-import { OptionType } from './index';
+import { OptionType } from  '@/types/SelectOption';
 
 export const customStyles = {
   multiValue: (provided: CSSObject) => ({
