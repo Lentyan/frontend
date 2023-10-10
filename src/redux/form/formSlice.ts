@@ -1,51 +1,54 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { OptionType } from '@/types/SelectOption';
 
-type FieldKey = 'shops' | 'groups' | 'categories' | 'subcategories' | 'sku';
+export type FieldKey = 'shops' | 'groups' | 'categories' | 'subcategories' | 'sku';
 
-interface FieldPayload {
-  fieldName: FieldKey;
-  value: OptionType[];
-}
 interface FormField {
-  value: OptionType[];
+  values: OptionType[];
+  selected: OptionType[];
   isEnabled: boolean;
 }
 
 interface FormState {
-  fields: {
-    shops: FormField,
-    groups: FormField,
-    categories: FormField,
-    subcategories: FormField,
-    sku: FormField,
-  }
+  fields: Record<FieldKey, FormField>;
 }
+
+const fieldKeys: FieldKey[] = ['shops', 'groups', 'categories', 'subcategories', 'sku'];
+
 
 const initialState: FormState = {
   fields: {
-    shops: { value: [], isEnabled: true },
-    groups: { value: [], isEnabled: false },
-    categories: { value: [], isEnabled: false },
-    subcategories: { value: [], isEnabled: false },
-    sku: { value: [], isEnabled: false },
+    shops: { values: [], selected: [], isEnabled: true },
+    groups: { values: [], selected: [], isEnabled: false },
+    categories: { values: [], selected: [], isEnabled: false },
+    subcategories: { values: [], selected: [], isEnabled: false },
+    sku: { values: [], selected: [], isEnabled: false },
   },
 };
+
 
 const formSlice = createSlice({
   name: 'searchForm',
   initialState,
   reducers: {
-    setFieldValue: (state, action: PayloadAction<FieldPayload>) => {
-      const { fieldName, value } = action.payload;
-      state.fields[fieldName].value = value;
+    // редюсер для установки выбранных элементов
+    setSelected: (state, action: PayloadAction<{ field: FieldKey; selected: OptionType[] }>) => {
+      const { field, selected } = action.payload;
+      state.fields[field].selected = selected;
     },
-    setFieldEnabled: (state, action: PayloadAction<{ fieldName: FieldKey; isEnabled: boolean }>) => {
-      const { fieldName, isEnabled } = action.payload;
-      state.fields[fieldName].isEnabled = isEnabled;
+    // редюсер для сохранения данных
+    setValues: (state, action: PayloadAction<{ field: FieldKey; values: OptionType[] }>) => {
+      const { field, values } = action.payload;
+      state.fields[field].values = values;
+    },
+    // редюсер для управления доступностью поля
+    setIsEnabled: (state, action: PayloadAction<{ field: FieldKey; isEnabled: boolean }>) => {
+      const { field, isEnabled } = action.payload;
+      state.fields[field].isEnabled = isEnabled;
     },
   },
 });
 
-export const formActions = formSlice.actions;
-export const formReducers = formSlice.reducer;
+export const searchFormActions = formSlice.actions;
+
+export default formSlice.reducer;

@@ -1,9 +1,9 @@
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { formActions } from '@/redux/form/formSlice';
+import { searchFormActions } from '@/redux/form/formSlice';
 
 const allActions = {
-  ...formActions,
+  ...searchFormActions,
 };
 export function useActions() {
   const dispatch = useDispatch();

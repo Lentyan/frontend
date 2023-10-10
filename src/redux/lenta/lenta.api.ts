@@ -11,8 +11,8 @@ export const lentaApi = createApi({
     baseUrl: 'http://localhost:80/',
   }),
   endpoints: build => ({
-    getShops: build.query<ShopApiResponse<Shop>, { page?: number, limit?: number }>({
-      query: ({ page = 1, limit = 10 } = {}) => ({
+    getAllShops: build.query<ShopApiResponse<Shop>, { page?: number, limit?: number }>({
+      query: ({ page = 1, limit = 2500 } = {}) => ({
         url: 'api/v1/shops/',
         params: {
           page,
@@ -20,7 +20,7 @@ export const lentaApi = createApi({
         },
       }),
     }),
-    getGroup: build.query<Group, { stores: string[] }>({
+    getGroups: build.query<Group, { stores: string[] }>({
       query: ({ stores }) => ({
         url: `api/v1/groups/?${stores.map(store => `store=${store}`).join('&')}`,
       }),
@@ -30,13 +30,13 @@ export const lentaApi = createApi({
         url: `api/v1/categories/?${groups.map(group => `group=${group}`).join('&')}`,
       }),
     }),
-    getSubcategory: build.query<Subcategory, { categories: string[] }>({
+    getSubcategories: build.query<Subcategory, { categories: string[] }>({
       query: ({ categories }) => ({
         url: `api/v1/subcategories/?${categories.map(category => `category=${category}`).join('&')}`,
       }),
     }),
     getSku: build.query<SkuResponse<Sku>, { subcategories: string[], page?: number, limit?: number }>({
-      query: ({ subcategories, page = 1, limit = 10 }) => ({
+      query: ({ subcategories, page = 1, limit = 200 }) => ({
         url: `api/v1/skus/?${subcategories.map(subcategory => `subcategory=${subcategory}`).join('&')}`,
         params: {
           page,
@@ -44,13 +44,27 @@ export const lentaApi = createApi({
         },
       }),
     }),
+    getSales: build.query<any, { stores: string[], sku: string[], page?: number, limit?: number }>({
+      query: ({ sku, stores, page = 1, limit = 200 }) => {
+        const skuQuery = sku.map(skuId => `sku=${skuId}`).join('&');
+        const storesQuery = stores.map(storeId => `stores=${storeId}`).join('&');
+        return {
+          url: `api/v1/sales/?${skuQuery}&${storesQuery}`,
+          params: {
+            page,
+            limit,
+          },
+        };
+      },
+    }),
   }),
 });
 
 export const {
-  useGetShopsQuery,
-  useLazyGetGroupQuery,
-  useLazyGetCategoriesQuery,
-  useLazyGetSubcategoryQuery,
-  useLazyGetSkuQuery,
+  useGetAllShopsQuery,
+  useGetGroupsQuery,
+  useGetCategoriesQuery,
+  useGetSubcategoriesQuery,
+  useGetSkuQuery,
+  useGetSalesQuery,
 } = lentaApi;
