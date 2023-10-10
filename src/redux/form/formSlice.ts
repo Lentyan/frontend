@@ -12,8 +12,9 @@ interface FormField {
 interface FormState {
   fields: Record<FieldKey, FormField>;
 }
+const fieldOrder: FieldKey[] = ['shops', 'groups', 'categories', 'subcategories', 'sku'];
 
-const fieldKeys: FieldKey[] = ['shops', 'groups', 'categories', 'subcategories', 'sku'];
+// const fieldKeys: FieldKey[] = ['shops', 'groups', 'categories', 'subcategories', 'sku'];
 
 
 const initialState: FormState = {
@@ -35,6 +36,14 @@ const formSlice = createSlice({
     setSelected: (state, action: PayloadAction<{ field: FieldKey; selected: OptionType[] }>) => {
       const { field, selected } = action.payload;
       state.fields[field].selected = selected;
+
+      const fieldIndex = fieldOrder.indexOf(field);
+      if (fieldIndex !== -1 && selected.length > 0) {
+        const nextField = fieldOrder[fieldIndex + 1];
+        if (nextField) {
+          state.fields[nextField].isEnabled = true;
+        }
+      }
     },
     // редюсер для сохранения данных
     setValues: (state, action: PayloadAction<{ field: FieldKey; values: OptionType[] }>) => {

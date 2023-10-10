@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { OptionType } from '@/types/SelectOption';
 import { useActions } from '@/hooks/useActions';
+import DataPicker from '@/components/DataPicker';
 
 export default function StatisticsSearch() {
   const { setSelected, setValues } = useActions();
@@ -32,6 +33,13 @@ export default function StatisticsSearch() {
   const [categoryValues, setCategoryValues] = useState<string[]>([]);
   const [subcategoryValues, setSubcategoryValues] = useState<string[]>([]);
   const [skuValues, setSkuValues] = useState<string[]>([]);
+
+  const shopsEnabled = useTypedSelector(state => state.searchForm.fields.shops.isEnabled);
+  const groupsEnabled = useTypedSelector(state => state.searchForm.fields.groups.isEnabled);
+  const categoriesEnabled = useTypedSelector(state => state.searchForm.fields.categories.isEnabled);
+  const subcategoriesEnabled = useTypedSelector(state => state.searchForm.fields.subcategories.isEnabled);
+  const skuEnabled = useTypedSelector(state => state.searchForm.fields.sku.isEnabled);
+
 
 
   // Магазины
@@ -138,46 +146,50 @@ export default function StatisticsSearch() {
   const { data: salesData } = useGetSalesQuery({ stores: shopValues, sku: skuValues, page: 1 }, {
     skip: selectedShops.length === 0 || selectedSku.length === 0,
   });
+  useEffect(() => {
+    console.log(salesData);
+  }, [salesData]);
 
   return (
     <section className={styles.statisticsSearch}>
       <form className={styles.statisticsSearch__form}>
         <SelectWithData
           placeholder="ТК"
-          fieldName="shops"
           onSelect={handleShopSelect}
           data={allShops}
           valueSelector={(state) => state.searchForm.fields.shops.selected}
+          isEnabled={shopsEnabled}
         />
         <SelectWithData
           placeholder="Группа"
-          fieldName="groups"
           onSelect={handleGroupSelect}
           data={filteredGroups}
           valueSelector={(state) => state.searchForm.fields.groups.selected}
+          isEnabled={groupsEnabled}
         />
         <SelectWithData
           placeholder="Категория"
-          fieldName="categories"
           onSelect={handleCategorySelect}
           data={filteredCategories}
           valueSelector={(state) => state.searchForm.fields.categories.selected}
+          isEnabled={categoriesEnabled}
         />
         <SelectWithData
           placeholder="Подкатегория"
-          fieldName="subcategories"
           onSelect={handleSubcategorySelect}
           data={filteredSubcategories}
           valueSelector={(state) => state.searchForm.fields.subcategories.selected}
+          isEnabled={subcategoriesEnabled}
         />
         <SelectWithData
-          fieldName="sku"
           placeholder="Товар"
           onSelect={handleSkuSelect}
           data={filteredSku}
           valueSelector={(state) => state.searchForm.fields.sku.selected}
+          isEnabled={skuEnabled}
         />
       </form>
+      <DataPicker />
     </section>
   );
 }

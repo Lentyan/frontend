@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useId } from 'react';
+import React, { FC, useId } from 'react';
 import Select from 'react-select';
 import styles from './SelectWithData.module.scss';
 import { customStyles } from '@/components/SelectWithData/customStyles';
@@ -10,23 +10,28 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 type Props = {
   placeholder: string;
   data?: (string | OptionType)[];
-  fieldName: string;
   onSelect: (selected: OptionType[]) => void;
   valueSelector: (state: any) => OptionType[];
+  isEnabled: boolean,
 };
 
-const SelectWithData: FC<Props> = ({ placeholder, data, fieldName, onSelect, valueSelector }) => {
+const SelectWithData: FC<Props> = ({ placeholder, data, onSelect, valueSelector, isEnabled }) => {
   const selectedValues = useTypedSelector(valueSelector);
-  const handleChange = useCallback((selectedOptions) => {
+  function handleChange(selectedOptions: any) {
     const selected = selectedOptions || [];
     onSelect(selected);
-  }, [onSelect]);
+  }
+
+  const formattedData = data?.map((item) =>
+    typeof item === 'string' ? { label: item, value: item } : item,
+  ) as OptionType[];
 
   return (
     <div className={styles.SelectWithData}>
       <label>
         <span className={styles.SelectWithData__name}>{placeholder}</span>
         <Select
+          isDisabled={!isEnabled}
           instanceId={useId()}
           styles={customStyles}
           placeholder={placeholder}
@@ -34,7 +39,7 @@ const SelectWithData: FC<Props> = ({ placeholder, data, fieldName, onSelect, val
           components={{ Option: SelectOption, MultiValue }}
           value={selectedValues}
           onChange={handleChange}
-          options={data}
+          options={formattedData}
           closeMenuOnSelect={false}
           hideSelectedOptions={false}
         />

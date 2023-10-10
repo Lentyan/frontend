@@ -8,6 +8,7 @@
   border-bottom: 1px solid #2c2a29;
   margin: 0;
   margin-left: auto;
+  margin-top: auto;
   z-index: 1;
 
   &::before {
@@ -42,7 +43,6 @@
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 8px;
-  inset: 0px auto auto -27px !important;
   margin: 16px 0 0 0;
   background: white;
 }

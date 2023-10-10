@@ -8,14 +8,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { Statistics } from '@/interfaces/Statistics';
-import { STATISTICS_TABLE_DATA } from '../../../test_data';
+import { FORECAST_TABLE_DATA } from '../../../test_data';
 import Cell from '../CellText';
 
 
-const defaultData: Statistics[] = STATISTICS_TABLE_DATA;
+const defaultData: any[] = FORECAST_TABLE_DATA;
 
-const columnHelper = createColumnHelper<Statistics>();
+const columnHelper = createColumnHelper<any>();
 
 const columns = [
   columnHelper.accessor(
@@ -55,85 +54,85 @@ const columns = [
       cell: info => <Cell type="small">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'actualVolumeAmount',
+    'day1',
     {
       header: () => <Cell type="header" position="right">01.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'actualVolumeAmount',
+    'day2',
     {
       header: () => <Cell type="header" position="right">02.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'forecastVolumeAmount',
+    'day3',
     {
       header: () => <Cell type="header" position="right">03.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'differenceVolumeAmount',
+    'day4',
     {
       header: () => <Cell type="header" position="right">04.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'actualSales',
+    'day5',
     {
       header: () => <Cell type="header" position="right">05.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'forecastSales',
+    'day6',
     {
       header: () => <Cell type="header" position="right">06.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'differenceSales',
+    'day7',
     {
       header: () => <Cell type="header" position="right">07.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'wape',
+    'day8',
     {
       header: () => <Cell type="header" position="right">08.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'forecastSales',
+    'day9',
     {
       header: () => <Cell type="header" position="right">09.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'differenceSales',
+    'day10',
     {
       header: () => <Cell type="header" position="right">10.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'wape',
+    'day11',
     {
       header: () => <Cell type="header" position="right">11.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'forecastSales',
+    'day12',
     {
       header: () => <Cell type="header" position="right">12.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'differenceSales',
+    'day13',
     {
       header: () => <Cell type="header" position="right">13.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
     }),
   columnHelper.accessor(
-    'wape',
+    'day14',
     {
       header: () => <Cell type="header" position="right">14.09.23</Cell>,
       cell: info => <Cell type="small" position="right">{info.getValue()}</Cell>,
