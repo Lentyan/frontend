@@ -12,6 +12,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { OptionType } from '@/types/SelectOption';
 import { useActions } from '@/hooks/useActions';
 import DataPicker from '@/components/DataPicker';
+import useFetchAllSalesData from "@/hooks/useFetchAllSalesData";
 
 export default function StatisticsSearch() {
   const { setSelected, setValues } = useActions();
@@ -123,7 +124,7 @@ export default function StatisticsSearch() {
   }, [subcategoryData]);
 
   // SKU
-  const { data: skuData } = useGetSkuQuery({ subcategories: subcategoryValues, page: 1, limit: 2500 }, {
+  const { data: skuData } = useGetSkuQuery({ subcategories: subcategoryValues, page: 1, limit: 200 }, {
     skip: selectedSubcategories.length === 0,
   });
 
@@ -143,12 +144,17 @@ export default function StatisticsSearch() {
   }, [skuData]);
 
   // Sales
-  const { data: salesData } = useGetSalesQuery({ stores: shopValues, sku: skuValues, page: 1 }, {
+  /*const { data: salesData } = useGetSalesQuery({ stores: shopValues, sku: skuValues, page: 1 }, {
     skip: selectedShops.length === 0 || selectedSku.length === 0,
   });
   useEffect(() => {
     console.log(salesData);
-  }, [salesData]);
+  }, [salesData]);*/
+
+  const allSalesData = useFetchAllSalesData(shopValues, skuValues);
+  useEffect(() => {
+    console.log(allSalesData);
+  }, [allSalesData]);
 
   return (
     <section className={styles.statisticsSearch}>

@@ -12,7 +12,7 @@ export const lentaApi = createApi({
   }),
   endpoints: build => ({
     getAllShops: build.query<ShopApiResponse<Shop>, { page?: number, limit?: number }>({
-      query: ({ page = 1, limit = 2500 } = {}) => ({
+      query: ({ page = 1, limit = 200 } = {}) => ({
         url: 'api/v1/shops/',
         params: {
           page,
