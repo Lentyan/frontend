@@ -38,10 +38,15 @@ const formSlice = createSlice({
       state.fields[field].selected = selected;
 
       const fieldIndex = fieldOrder.indexOf(field);
-      if (fieldIndex !== -1 && selected.length > 0) {
-        const nextField = fieldOrder[fieldIndex + 1];
-        if (nextField) {
-          state.fields[nextField].isEnabled = true;
+      const nextField = fieldIndex + 1;
+
+      if (fieldIndex !== -1) {
+        for (let i = nextField; i < fieldOrder.length; i++) {
+          state.fields[fieldOrder[i]].selected = [];
+          state.fields[fieldOrder[i]].isEnabled = false;
+        }
+        if (selected.length > 0 && fieldOrder[nextField]) {
+          state.fields[fieldOrder[nextField]].isEnabled = true;
         }
       }
     },

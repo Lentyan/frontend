@@ -3,7 +3,9 @@
 import {
   useGetAllShopsQuery,
   useGetCategoriesQuery,
-  useGetGroupsQuery, useGetSalesQuery, useGetSkuQuery, useGetSubcategoriesQuery,
+  useGetGroupsQuery,
+  useGetSkuQuery,
+  useGetSubcategoriesQuery,
 } from '@/redux/lenta/lenta.api';
 import SelectWithData from '@/components/SelectWithData';
 import styles from './StatisticsSearch.module.scss';
@@ -12,17 +14,17 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { OptionType } from '@/types/SelectOption';
 import { useActions } from '@/hooks/useActions';
 import DataPicker from '@/components/DataPicker';
-import useFetchAllSalesData from "@/hooks/useFetchAllSalesData";
+import useFetchAllSalesData from '@/hooks/useFetchAllSalesData';
 
 export default function StatisticsSearch() {
-  const { setSelected, setValues } = useActions();
+  const { setSelected, setValues, setDataSales } = useActions();
   const allShops = useTypedSelector(state => state.searchForm.fields.shops.values);
 
   const selectedShops = useTypedSelector(state => state.searchForm.fields.shops.selected);
   const selectedGroups = useTypedSelector(state => state.searchForm.fields.groups.selected);
   const selectedCategories = useTypedSelector(state => state.searchForm.fields.categories.selected);
   const selectedSubcategories = useTypedSelector(state => state.searchForm.fields.subcategories.selected);
-  const selectedSku = useTypedSelector(state => state.searchForm.fields.sku.selected);
+  // const selectedSku = useTypedSelector(state => state.searchForm.fields.sku.selected);
 
   const filteredGroups = useTypedSelector(state => state.searchForm.fields.groups.values);
   const filteredCategories = useTypedSelector(state => state.searchForm.fields.categories.values);
@@ -151,10 +153,13 @@ export default function StatisticsSearch() {
     console.log(salesData);
   }, [salesData]);*/
 
-  const allSalesData = useFetchAllSalesData(shopValues, skuValues);
+  const { data: allSalesData } = useFetchAllSalesData(shopValues, skuValues);
   useEffect(() => {
-    console.log(allSalesData);
+    if (allSalesData) {
+      setDataSales(allSalesData);
+    }
   }, [allSalesData]);
+
 
   return (
     <section className={styles.statisticsSearch}>

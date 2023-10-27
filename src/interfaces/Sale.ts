@@ -1,4 +1,4 @@
-interface SalesFact {
+export interface Sale {
   date: string;
   sales_type: number;
   sales_units: number;
@@ -7,12 +7,15 @@ interface SalesFact {
   sales_rub_promo: number;
 }
 
-interface StoreSalesData {
+export interface SalesData {
   store: string;
   sku: string;
-  fact: SalesFact[];
+  fact: Sale[];
 }
 
-export default interface StoreSalesResponse {
-  data: StoreSalesData[];
+export interface SalesResponse<T> {
+  count: number
+  next: string | null
+  previous: string | null
+  results: T[]
 }

@@ -4,6 +4,7 @@ import { Category } from '@/interfaces/Category';
 import { Group } from '@/interfaces/Group';
 import { Subcategory } from '@/interfaces/Subcategory';
 import { Sku, SkuResponse } from '@/interfaces/Sku';
+import { Sale, SalesResponse } from '@/interfaces/Sale';
 
 export const lentaApi = createApi({
   reducerPath: 'shopApi',
@@ -44,7 +45,7 @@ export const lentaApi = createApi({
         },
       }),
     }),
-    getSales: build.query<any, { stores: string[], sku: string[], page?: number, limit?: number }>({
+    getSales: build.query<SalesResponse<Sale>, { stores: string[], sku: string[], page?: number, limit?: number }>({
       query: ({ sku, stores, page = 1, limit = 200 }) => {
         const skuQuery = sku.map(skuId => `sku=${skuId}`).join('&');
         const storesQuery = stores.map(storeId => `stores=${storeId}`).join('&');

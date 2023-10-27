@@ -1,5 +1,5 @@
 import { TypeRootState } from '@/redux/store';
-import { FieldKey } from '@/redux/form/formSlice';
+import { FieldKey } from '@/redux/lenta/form/formSlice';
 
 export const selectFieldValues = (state: TypeRootState, field: FieldKey) => {
   return state.searchForm.fields[field].values;

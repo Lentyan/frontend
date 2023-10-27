@@ -11,6 +11,7 @@ import {
 import { Statistics } from '@/interfaces/Statistics';
 import { STATISTICS_TABLE_DATA } from '../../../test_data';
 import Cell from '../CellText';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 
 const defaultData: Statistics[] = STATISTICS_TABLE_DATA;
@@ -99,6 +100,8 @@ const columns = [
 ];
 
 const StatisticsTable = () => {
+  const testData = useTypedSelector((state) => state.dataSales);
+  console.log(testData);
   const [data] = useState(() => [...defaultData]);
   const table = useReactTable({
     data,
